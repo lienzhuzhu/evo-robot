@@ -14,7 +14,7 @@ plane_id = p.loadURDF("plane.urdf")
 
 
 
-p.loadSDF("./boxes.sdf")
+p.loadSDF("./world.sdf")
 
 for i in range(1000):
     p.stepSimulation()

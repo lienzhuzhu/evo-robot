@@ -5,6 +5,7 @@ import pybullet_data
 import time
 
 GRAVITY = -9.8
+TIMESTEPS = 100
 
 physics_client = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -19,13 +20,16 @@ p.loadSDF("./world.sdf")
 
 
 pyrosim.Prepare_To_Simulate(robot_id)
-backLeg_sensor_values = numpy.zeros(100)
+backLeg_sensor_values = numpy.zeros(TIMESTEPS)
+frontLeg_sensor_values = numpy.zeros(TIMESTEPS)
 
-for i in range(100):
+for i in range(TIMESTEPS):
     p.stepSimulation()
     backLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    frontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
     time.sleep(1/120.0)
 
 numpy.save("data/sensor.npy", backLeg_sensor_values)
+numpy.save("data/frontLeg.npy", frontLeg_sensor_values)
 
 p.disconnect()

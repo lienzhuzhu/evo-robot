@@ -4,10 +4,16 @@ import pybullet as p
 import pybullet_data
 import time
 import math
+import random
 
 GRAVITY = -9.8
 TIMESTEPS = 1000
 PI = math.pi
+
+
+def random_angle():
+    angle = -PI/2.0 + random.random() * PI
+    return angle
 
 physics_client = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -34,7 +40,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = -PI / 4.0,
+        targetPosition = random_angle(),
         maxForce = 500
     )
 
@@ -42,7 +48,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = +PI / 4.0,
+        targetPosition = random_angle(),
         maxForce = 500
     )
 

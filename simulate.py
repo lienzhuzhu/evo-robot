@@ -12,7 +12,7 @@ PI = math.pi
 
 
 def random_angle():
-    angle = -PI/2.0 + random.random() * PI
+    angle = -PI/12.0 + random.random() * PI/6.0
     return angle
 
 physics_client = p.connect(p.GUI)

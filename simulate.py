@@ -38,6 +38,14 @@ for i in range(TIMESTEPS):
         maxForce = 500
     )
 
+    pyrosim.Set_Motor_For_Joint(
+        bodyIndex = robot_id,
+        jointName = "Torso_FrontLeg",
+        controlMode = p.POSITION_CONTROL,
+        targetPosition = +PI / 4.0,
+        maxForce = 500
+    )
+
     time.sleep(1/120.0)
 
 numpy.save("data/sensor.npy", backLeg_sensor_values)

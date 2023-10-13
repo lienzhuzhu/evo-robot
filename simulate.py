@@ -5,7 +5,7 @@ import pybullet_data
 import time
 
 GRAVITY = -9.8
-TIMESTEPS = 100
+TIMESTEPS = 1000
 
 physics_client = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -29,11 +29,12 @@ for i in range(TIMESTEPS):
     frontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 
     pyrosim.Set_Motor_For_Joint(
-        bodyIndex = ...,
-        jointName = "...",
-        controlMode = ...,
-        targetPosition = ...,
-        maxForce = ...)
+        bodyIndex = robot_id,
+        jointName = "Torso_BackLeg",
+        controlMode = p.POSITION_CONTROL,
+        targetPosition = 0.0,
+        maxForce = 500
+    )
 
     time.sleep(1/120.0)
 

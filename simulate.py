@@ -3,9 +3,11 @@ import numpy as numpy
 import pybullet as p
 import pybullet_data
 import time
+import math
 
 GRAVITY = -9.8
 TIMESTEPS = 1000
+PI = math.pi
 
 physics_client = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -32,7 +34,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = 0.0,
+        targetPosition = -PI / 4.0,
         maxForce = 500
     )
 

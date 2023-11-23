@@ -8,7 +8,7 @@ import random
 
 GRAVITY = -9.8
 TIMESTEPS = 1000
-PI = math.pi
+PI = np.pi
 
 
 ### Helper Functions ###
@@ -18,10 +18,16 @@ def random_angle(angle_range):
     return a + (b - a) * random.random()
 
 #angles = (-PI/2., PI/2.)
-angles2 = (-1, 1)
+#angles = (-1, 1)
 #angles = (-0.5, 0.5)
 #angles = (-0.25, 0.25)
-angles1 = (-0.15, 0.15)
+#angles = (-0.15, 0.15)
+
+
+x = np.linspace(0, 2*PI, TIMESTEPS)
+targetAngles = np.sin(x)
+np.save("data/targetAngles.npy", targetAngles)
+exit()
 
 
 physics_client = p.connect(p.GUI)

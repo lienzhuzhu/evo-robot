@@ -1,9 +1,14 @@
-import numpy
-import matplotlib.pyplot
+import numpy as np
+import matplotlib.pyplot as plt
 
-backLeg_sensor_data = numpy.load("data/sensor.npy")
-frontLeg_sensor_data = numpy.load("data/frontLeg.npy")
-matplotlib.pyplot.plot(backLeg_sensor_data, label="Back Leg", linewidth=5)
-matplotlib.pyplot.plot(frontLeg_sensor_data, label="Front Leg")
-matplotlib.pyplot.legend()
-matplotlib.pyplot.show()
+#backLeg_sensor_data = np.load("data/backLeg.npy")
+#frontLeg_sensor_data = np.load("data/frontLeg.npy")
+#
+#plt.plot(backLeg_sensor_data, 'r-', label="Back Leg")
+#plt.plot(frontLeg_sensor_data, 'b:', label="Front Leg")
+
+targetAngles = np.load("data/targetAngles.npy")
+#x = np.linspace(0, 2*np.pi, targetAngles.size)
+plt.plot(np.arange(targetAngles.size), targetAngles)
+
+plt.show()

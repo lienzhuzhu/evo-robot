@@ -14,7 +14,7 @@ PI = np.pi
 ### BEGIN MATH ###
 
 amplitude = PI / 4
-frequency = 1.
+frequency = 10.
 phaseOffset = 0.
 
 def scale_value(target_range, old_range, val):
@@ -27,6 +27,7 @@ x = np.linspace(0, 2*PI, TIMESTEPS)
 #targetAngles = scale_value( (-PI/4., PI/4.) , (-1., 1.), np.sin(x) )
 targetAngles = amplitude * np.sin(frequency * x + phaseOffset)
 np.save("data/targetAngles.npy", targetAngles)
+#exit()
 
 ### END MATH ###
 

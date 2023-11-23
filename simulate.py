@@ -11,9 +11,18 @@ TIMESTEPS = 1000
 PI = math.pi
 
 
-def random_angle():
-    angle = -PI/12.0 + random.random() * PI/6.0
-    return angle
+### Helper Functions ###
+
+def random_angle(angle_range):
+    a, b = angle_range
+    return a + (b - a) * random.random()
+
+#angles = (-PI/2., PI/2.)
+angles2 = (-1, 1)
+#angles = (-0.5, 0.5)
+#angles = (-0.25, 0.25)
+angles1 = (-0.15, 0.15)
+
 
 physics_client = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -40,7 +49,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random.random(),
+        targetPosition = random_angle(angles2),
         maxForce = 500
     )
 
@@ -48,13 +57,13 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random.random(),
+        targetPosition = random_angle(angles1),
         maxForce = 500
     )
 
-    time.sleep(1/120.0)
+    time.sleep(1/60.0)
 
-np.save("data/backLeg.npy", backLeg_sensor_values)
-np.save("data/frontLeg.npy", frontLeg_sensor_values)
+#np.save("data/backLeg.npy", backLeg_sensor_values)
+#np.save("data/frontLeg.npy", frontLeg_sensor_values)
 
 p.disconnect()

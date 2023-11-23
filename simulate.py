@@ -21,7 +21,7 @@ def scale_value(target_range, old_range, val):
 
 BackLeg_amplitude       = PI / 4.
 BackLeg_frequency       = 10.
-BackLeg_phaseOffset     = PI / 4.
+BackLeg_phaseOffset     = PI
 
 FrontLeg_amplitude      = PI / 4.
 FrontLeg_frequency      = 10.
@@ -34,7 +34,7 @@ FrontLeg_targetAngles = FrontLeg_amplitude * np.sin(FrontLeg_frequency * x + Fro
 
 np.save("data/BackLeg_targetAngles.npy", BackLeg_targetAngles)
 np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
-exit()
+#exit()
 
 ### END MATH ###
 
@@ -76,7 +76,7 @@ for i in range(TIMESTEPS):
         maxForce = 500
     )
 
-    time.sleep(1/1200.)
+    time.sleep(1/2400.)
 
 #np.save("data/BackLeg.npy", BackLeg_sensor_values)
 #np.save("data/FrontLeg.npy", FrontLeg_sensor_values)

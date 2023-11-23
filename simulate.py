@@ -11,7 +11,11 @@ TIMESTEPS = 1000
 PI = np.pi
 
 
-### BEGIN Helper Functions ###
+### BEGIN MATH ###
+
+amplitude = PI / 4
+frequency = 1.
+phaseOffset = 0.
 
 def scale_value(target_range, old_range, val):
     a, b = target_range
@@ -20,10 +24,11 @@ def scale_value(target_range, old_range, val):
 
 
 x = np.linspace(0, 2*PI, TIMESTEPS)
-targetAngles = scale_value( (-PI/4., PI/4.) , (-1., 1.), np.sin(x) )
-#np.save("data/targetAngles.npy", targetAngles)
+#targetAngles = scale_value( (-PI/4., PI/4.) , (-1., 1.), np.sin(x) )
+targetAngles = amplitude * np.sin(frequency * x + phaseOffset)
+np.save("data/targetAngles.npy", targetAngles)
 
-### END Helper Functions ###
+### END MATH ###
 
 
 physics_client = p.connect(p.GUI)
@@ -63,7 +68,7 @@ for i in range(TIMESTEPS):
         maxForce = 500
     )
 
-    time.sleep(1/240.)
+    time.sleep(1/1200.)
 
 #np.save("data/backLeg.npy", backLeg_sensor_values)
 #np.save("data/frontLeg.npy", frontLeg_sensor_values)

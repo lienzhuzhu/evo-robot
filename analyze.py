@@ -10,6 +10,7 @@ import matplotlib.pyplot as plt
 targetAngles = np.load("data/targetAngles.npy")
 plt.plot(np.arange(targetAngles.size), targetAngles, label="targetAngles")
 
+plt.title("Motor Commands")
 plt.xlabel("Steps")
 plt.ylabel("Value in Radians")
 

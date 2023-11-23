@@ -7,8 +7,11 @@ import matplotlib.pyplot as plt
 #plt.plot(backLeg_sensor_data, 'r-', label="Back Leg")
 #plt.plot(frontLeg_sensor_data, 'b:', label="Front Leg")
 
-targetAngles = np.load("data/targetAngles.npy")
-plt.plot(np.arange(targetAngles.size), targetAngles, label="targetAngles")
+BackLeg_targetAngles = np.load("data/BackLeg_targetAngles.npy")
+plt.plot(np.arange(BackLeg_targetAngles.size), BackLeg_targetAngles, label="BackLeg targetAngles")
+
+FrontLeg_targetAngles = np.load("data/FrontLeg_targetAngles.npy")
+plt.plot(np.arange(FrontLeg_targetAngles.size), FrontLeg_targetAngles, label="FrontLeg targetAngles")
 
 plt.title("Motor Commands")
 plt.xlabel("Steps")

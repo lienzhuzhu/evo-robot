@@ -19,11 +19,11 @@ def scale_value(target_range, old_range, val):
     return a + (b - a) * (val - c) / (d - c)
 
 
-BackLeg_amplitude = PI / 4
+BackLeg_amplitude = PI / 4.
 BackLeg_frequency = 10.
-BackLeg_phaseOffset = 0.
+BackLeg_phaseOffset = PI / 4.
 
-FrontLeg_amplitude = PI / 4
+FrontLeg_amplitude = PI / 4.
 FrontLeg_frequency = 10.
 FrontLeg_phaseOffset = 0.
 
@@ -31,7 +31,10 @@ FrontLeg_phaseOffset = 0.
 x = np.linspace(0, 2*PI, TIMESTEPS)
 BackLeg_targetAngles = BackLeg_amplitude * np.sin(BackLeg_frequency * x + BackLeg_phaseOffset)
 FrontLeg_targetAngles = FrontLeg_amplitude * np.sin(FrontLeg_frequency * x + FrontLeg_phaseOffset)
-#exit()
+
+np.save("data/BackLeg_targetAngles.npy", BackLeg_targetAngles)
+np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
+exit()
 
 ### END MATH ###
 

@@ -40,7 +40,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = -PI / 4.,
+        targetPosition = random.random(),
         maxForce = 500
     )
 
@@ -48,7 +48,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = PI / 4.,
+        targetPosition = random.random(),
         maxForce = 500
     )
 

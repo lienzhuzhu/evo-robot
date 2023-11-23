@@ -61,7 +61,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = targetAngles[i],
+        targetPosition = BackLeg_targetAngles[i],
         maxForce = 500
     )
 
@@ -69,7 +69,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = targetAngles[i],
+        targetPosition = FrontLeg_targetAngles[i],
         maxForce = 500
     )
 

@@ -13,20 +13,24 @@ PI = np.pi
 
 ### BEGIN MATH ###
 
-amplitude = PI / 4
-frequency = 10.
-phaseOffset = 0.
-
 def scale_value(target_range, old_range, val):
     a, b = target_range
     c, d = old_range
     return a + (b - a) * (val - c) / (d - c)
 
 
+BackLeg_amplitude = PI / 4
+BackLeg_frequency = 10.
+BackLeg_phaseOffset = 0.
+
+FrontLeg_amplitude = PI / 4
+FrontLeg_frequency = 10.
+FrontLeg_phaseOffset = 0.
+
+
 x = np.linspace(0, 2*PI, TIMESTEPS)
-#targetAngles = scale_value( (-PI/4., PI/4.) , (-1., 1.), np.sin(x) )
-targetAngles = amplitude * np.sin(frequency * x + phaseOffset)
-np.save("data/targetAngles.npy", targetAngles)
+BackLeg_targetAngles = BackLeg_amplitude * np.sin(BackLeg_frequency * x + BackLeg_phaseOffset)
+FrontLeg_targetAngles = FrontLeg_amplitude * np.sin(FrontLeg_frequency * x + FrontLeg_phaseOffset)
 #exit()
 
 ### END MATH ###

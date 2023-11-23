@@ -1,5 +1,5 @@
 import pyrosim.pyrosim as pyrosim
-import numpy as numpy
+import numpy as np
 import pybullet as p
 import pybullet_data
 import time
@@ -22,14 +22,14 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
 p.setGravity(0, 0, GRAVITY)
 plane_id = p.loadURDF("plane.urdf")
-robot_id = p.loadURDF("body.urdf")
+robot_id = p.loadURDF("./body.urdf")
 
 p.loadSDF("./world.sdf")
 
 
 pyrosim.Prepare_To_Simulate(robot_id)
-backLeg_sensor_values = numpy.zeros(TIMESTEPS)
-frontLeg_sensor_values = numpy.zeros(TIMESTEPS)
+backLeg_sensor_values = np.zeros(TIMESTEPS)
+frontLeg_sensor_values = np.zeros(TIMESTEPS)
 
 for i in range(TIMESTEPS):
     p.stepSimulation()
@@ -40,7 +40,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random_angle(),
+        targetPosition = -PI / 4.,
         maxForce = 500
     )
 
@@ -48,13 +48,13 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random_angle(),
+        targetPosition = PI / 4.,
         maxForce = 500
     )
 
     time.sleep(1/120.0)
 
-numpy.save("data/sensor.npy", backLeg_sensor_values)
-numpy.save("data/frontLeg.npy", frontLeg_sensor_values)
+np.save("data/backLeg.npy", backLeg_sensor_values)
+np.save("data/frontLeg.npy", frontLeg_sensor_values)
 
 p.disconnect()

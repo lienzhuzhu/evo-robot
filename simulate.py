@@ -34,7 +34,7 @@ FrontLeg_targetAngles = FrontLeg_amplitude * np.sin(FrontLeg_frequency * x + Fro
 
 np.save("data/BackLeg_targetAngles.npy", BackLeg_targetAngles)
 np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
-exit()
+#exit()
 
 ### END MATH ###
 
@@ -52,13 +52,13 @@ p.loadSDF("./world.sdf")
 
 
 pyrosim.Prepare_To_Simulate(robot_id)
-backLeg_sensor_values = np.zeros(TIMESTEPS)
-frontLeg_sensor_values = np.zeros(TIMESTEPS)
+BackLeg_sensor_values = np.zeros(TIMESTEPS)
+FrontLeg_sensor_values = np.zeros(TIMESTEPS)
 
 for i in range(TIMESTEPS):
     p.stepSimulation()
-    backLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-    frontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
+    BackLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
+    FrontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 
     pyrosim.Set_Motor_For_Joint(
         bodyIndex = robot_id,
@@ -78,7 +78,7 @@ for i in range(TIMESTEPS):
 
     time.sleep(1/1200.)
 
-#np.save("data/backLeg.npy", backLeg_sensor_values)
-#np.save("data/frontLeg.npy", frontLeg_sensor_values)
+#np.save("data/BackLeg.npy", BackLeg_sensor_values)
+#np.save("data/FrontLeg.npy", FrontLeg_sensor_values)
 
 p.disconnect()

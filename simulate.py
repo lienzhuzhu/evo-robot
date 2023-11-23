@@ -17,6 +17,10 @@ def random_angle(angle_range):
     a, b = angle_range
     return a + (b - a) * random.random()
 
+def scale_value(val_range, val):
+    a, b = val_range
+    return a + (b - a) * (val + 1.) / 2.
+
 #angles = (-PI/2., PI/2.)
 #angles = (-1, 1)
 #angles = (-0.5, 0.5)
@@ -25,7 +29,8 @@ def random_angle(angle_range):
 
 
 x = np.linspace(0, 2*PI, TIMESTEPS)
-targetAngles = np.sin(x)
+targetAngles = scale_value( (-PI/4., PI/4.) , np.sin(x) )
+#targetAngles = np.sin(x)
 np.save("data/targetAngles.npy", targetAngles)
 exit()
 

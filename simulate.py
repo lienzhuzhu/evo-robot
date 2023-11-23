@@ -11,34 +11,25 @@ TIMESTEPS = 1000
 PI = np.pi
 
 
-### Helper Functions ###
+### BEGIN Helper Functions ###
 
-def random_angle(angle_range):
-    a, b = angle_range
-    return a + (b - a) * random.random()
-
-def scale_value(val_range, val):
-    a, b = val_range
-    return a + (b - a) * (val + 1.) / 2.
-
-#angles = (-PI/2., PI/2.)
-#angles = (-1, 1)
-#angles = (-0.5, 0.5)
-#angles = (-0.25, 0.25)
-#angles = (-0.15, 0.15)
+def scale_value(target_range, old_range, val):
+    a, b = target_range
+    c, d = old_range
+    return a + (b - a) * (val - c) / (d - c)
 
 
 x = np.linspace(0, 2*PI, TIMESTEPS)
-targetAngles = scale_value( (-PI/4., PI/4.) , np.sin(x) )
-#targetAngles = np.sin(x)
-np.save("data/targetAngles.npy", targetAngles)
-exit()
+targetAngles = scale_value( (-PI/4., PI/4.) , (-1., 1.), np.sin(x) )
+#np.save("data/targetAngles.npy", targetAngles)
+
+### END Helper Functions ###
 
 
 physics_client = p.connect(p.GUI)
 p.setAdditionalSearchPath(pybullet_data.getDataPath())
-
 #p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
+
 
 p.setGravity(0, 0, GRAVITY)
 plane_id = p.loadURDF("plane.urdf")
@@ -60,7 +51,7 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_BackLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random_angle(angles2),
+        targetPosition = targetAngles[i],
         maxForce = 500
     )
 
@@ -68,11 +59,11 @@ for i in range(TIMESTEPS):
         bodyIndex = robot_id,
         jointName = "Torso_FrontLeg",
         controlMode = p.POSITION_CONTROL,
-        targetPosition = random_angle(angles1),
+        targetPosition = targetAngles[i],
         maxForce = 500
     )
 
-    time.sleep(1/60.0)
+    time.sleep(1/240.)
 
 #np.save("data/backLeg.npy", backLeg_sensor_values)
 #np.save("data/frontLeg.npy", frontLeg_sensor_values)

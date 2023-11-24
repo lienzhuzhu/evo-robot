@@ -6,8 +6,8 @@ import time
 import math
 import random
 
-GRAVITY = -9.8 * 2
-TIMESTEPS = 5000
+GRAVITY = -9.8 * 4
+TIMESTEPS = 1000
 PI = np.pi
 
 
@@ -19,16 +19,16 @@ def scale_value(target_range, old_range, val):
     return a + (b - a) * (val - c) / (d - c)
 
 
-BackLeg_amplitude       = 10
-BackLeg_frequency       = 5.
+BackLeg_amplitude       = PI/3
+BackLeg_frequency       = 10
 BackLeg_phaseOffset     = PI / 3
 
-FrontLeg_amplitude      = 5
-FrontLeg_frequency      = 5.
+FrontLeg_amplitude      = PI/2
+FrontLeg_frequency      = 10
 FrontLeg_phaseOffset    = 0.
 
 
-x = np.linspace(0, 64*PI * TIMESTEPS/1000, TIMESTEPS)
+x = np.linspace(0, 2*PI*TIMESTEPS/1000, TIMESTEPS)
 BackLeg_targetAngles    = BackLeg_amplitude  * np.sin(BackLeg_frequency  * x + BackLeg_phaseOffset)
 FrontLeg_targetAngles   = FrontLeg_amplitude * np.sin(FrontLeg_frequency * x + FrontLeg_phaseOffset)
 

@@ -7,7 +7,7 @@ import math
 import random
 
 GRAVITY = -9.8 * 4
-TIMESTEPS = 1000
+TIMESTEPS = 1000 * 5
 PI = np.pi
 
 
@@ -19,13 +19,13 @@ def scale_value(target_range, old_range, val):
     return a + (b - a) * (val - c) / (d - c)
 
 
-BackLeg_amplitude       = PI/3
+BackLeg_amplitude       = PI/2
 BackLeg_frequency       = 10
-BackLeg_phaseOffset     = PI / 3
+BackLeg_phaseOffset     = 0
 
-FrontLeg_amplitude      = PI/2
+FrontLeg_amplitude      = PI/3
 FrontLeg_frequency      = 10
-FrontLeg_phaseOffset    = 0.
+FrontLeg_phaseOffset    = PI/3
 
 
 x = np.linspace(0, 2*PI*TIMESTEPS/1000, TIMESTEPS)

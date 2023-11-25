@@ -45,6 +45,9 @@ p.setAdditionalSearchPath(pybullet_data.getDataPath())
 
 
 p.setGravity(0, 0, GRAVITY)
+
+
+### LOAD DESCRIPTION FILES ###
 plane_id = p.loadURDF("plane.urdf")
 robot_id = p.loadURDF("./body.urdf")
 
@@ -52,6 +55,8 @@ p.loadSDF("./world.sdf")
 
 
 pyrosim.Prepare_To_Simulate(robot_id)
+
+
 BackLeg_sensor_values = np.zeros(TIMESTEPS)
 FrontLeg_sensor_values = np.zeros(TIMESTEPS)
 

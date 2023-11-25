@@ -6,18 +6,13 @@ import time
 import math
 import random
 
+
 GRAVITY = -9.8 * 4
 TIMESTEPS = 1000 * 5
 PI = np.pi
 
 
 ### BEGIN MATH ###
-
-def scale_value(target_range, old_range, val):
-    a, b = target_range
-    c, d = old_range
-    return a + (b - a) * (val - c) / (d - c)
-
 
 BackLeg_amplitude       = PI/2
 BackLeg_frequency       = 10

@@ -5,11 +5,12 @@ import pybullet_data
 import time
 import math
 import random
+import constants as c
 
 
-GRAVITY = -9.8 * 4
-TIMESTEPS = 1000 * 5
-PI = np.pi
+GRAVITY     = c.GRAVITY
+TIMESTEPS   = c.TIMESTEPS
+PI          = c.PI
 
 
 ### BEGIN MATH ###

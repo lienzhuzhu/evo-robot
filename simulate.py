@@ -28,7 +28,6 @@ PI          = c.PI
 
 
 
-
 ### BEGIN MATH ###
 
 BackLeg_amplitude       = PI/2
@@ -51,37 +50,8 @@ np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
 ### END MATH ###
 
 
-
-
-
-
-
-
 BackLeg_sensor_values = np.zeros(TIMESTEPS)
 FrontLeg_sensor_values = np.zeros(TIMESTEPS)
-
-for i in range(TIMESTEPS):
-    p.stepSimulation()
-    BackLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
-    FrontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
-
-    pyrosim.Set_Motor_For_Joint(
-        bodyIndex = robot_id,
-        jointName = "Torso_BackLeg",
-        controlMode = p.POSITION_CONTROL,
-        targetPosition = BackLeg_targetAngles[i],
-        maxForce = 500
-    )
-
-    pyrosim.Set_Motor_For_Joint(
-        bodyIndex = robot_id,
-        jointName = "Torso_FrontLeg",
-        controlMode = p.POSITION_CONTROL,
-        targetPosition = FrontLeg_targetAngles[i],
-        maxForce = 500
-    )
-
-    time.sleep(1/2400.)
 
 #np.save("data/BackLeg.npy", BackLeg_sensor_values)
 #np.save("data/FrontLeg.npy", FrontLeg_sensor_values)

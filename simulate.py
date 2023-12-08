@@ -86,5 +86,4 @@ for i in range(TIMESTEPS):
 #np.save("data/BackLeg.npy", BackLeg_sensor_values)
 #np.save("data/FrontLeg.npy", FrontLeg_sensor_values)
 
-p.disconnect()
 """

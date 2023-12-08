@@ -21,12 +21,14 @@ class SIMULATION:
 
         self.world = WORLD()
         self.robot = ROBOT()
+
+    def __del__(self):
+        p.disconnect()
         
 
     def Run(self):
         for i in range(TIMESTEPS):
             p.stepSimulation()
-            print(i)
             #BackLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
             #FrontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")
 

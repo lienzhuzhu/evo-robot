@@ -1,6 +1,7 @@
 from simulation import SIMULATION
 
 simulation = SIMULATION()
+simulation.Run()
 
 
 
@@ -9,20 +10,20 @@ simulation = SIMULATION()
 ################
 
 
+"""
+
 #import pyrosim.pyrosim as pyrosim
 import numpy as np
 #import pybullet as p
 #import pybullet_data
-import time
+#import time
 time.sleep(60)
-"""
 import math
 import random
 import constants as c
 
 
 
-TIMESTEPS   = c.TIMESTEPS
 PI          = c.PI
 
 

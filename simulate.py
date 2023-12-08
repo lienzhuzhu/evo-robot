@@ -3,21 +3,29 @@ from simulation import SIMULATION
 simulation = SIMULATION()
 
 
-###
 
-import pyrosim.pyrosim as pyrosim
+################
+### OLD CODE ###
+################
+
+
+#import pyrosim.pyrosim as pyrosim
 import numpy as np
-import pybullet as p
-import pybullet_data
+#import pybullet as p
+#import pybullet_data
 import time
+time.sleep(60)
+"""
 import math
 import random
 import constants as c
 
 
-GRAVITY     = c.GRAVITY
+
 TIMESTEPS   = c.TIMESTEPS
 PI          = c.PI
+
+
 
 
 ### BEGIN MATH ###
@@ -42,22 +50,10 @@ np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
 ### END MATH ###
 
 
-physics_client = p.connect(p.GUI)
-p.setAdditionalSearchPath(pybullet_data.getDataPath())
-#p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
 
 
-p.setGravity(0, 0, GRAVITY)
 
 
-### LOAD DESCRIPTION FILES ###
-plane_id = p.loadURDF("plane.urdf")
-robot_id = p.loadURDF("./body.urdf")
-
-p.loadSDF("./world.sdf")
-
-
-pyrosim.Prepare_To_Simulate(robot_id)
 
 
 BackLeg_sensor_values = np.zeros(TIMESTEPS)
@@ -90,3 +86,4 @@ for i in range(TIMESTEPS):
 #np.save("data/FrontLeg.npy", FrontLeg_sensor_values)
 
 p.disconnect()
+"""

@@ -1,3 +1,10 @@
+from simulation import SIMULATION
+
+simulation = SIMULATION()
+
+
+###
+
 import pyrosim.pyrosim as pyrosim
 import numpy as np
 import pybullet as p

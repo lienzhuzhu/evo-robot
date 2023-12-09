@@ -8,16 +8,12 @@ import constants as c
 
 
 
-GRAVITY     = c.GRAVITY
-TIMESTEPS   = c.TIMESTEPS
-
-
 class SIMULATION:
     def __init__(self):
         self.physics_client = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         #p.configureDebugVisualizer(p.COV_ENABLE_GUI,0)
-        p.setGravity(0, 0, GRAVITY)
+        p.setGravity(0, 0, c.GRAVITY)
 
         self.world = WORLD()
         self.robot = ROBOT()
@@ -27,7 +23,7 @@ class SIMULATION:
         
 
     def Run(self):
-        for i in range(TIMESTEPS):
+        for i in range(c.TIMESTEPS):
             p.stepSimulation()
             #BackLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("BackLeg")
             #FrontLeg_sensor_values[i] = pyrosim.Get_Touch_Sensor_Value_For_Link("FrontLeg")

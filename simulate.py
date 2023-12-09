@@ -50,8 +50,6 @@ np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
 ### END MATH ###
 
 
-BackLeg_sensor_values = np.zeros(TIMESTEPS)
-FrontLeg_sensor_values = np.zeros(TIMESTEPS)
 
 #np.save("data/BackLeg.npy", BackLeg_sensor_values)
 #np.save("data/FrontLeg.npy", FrontLeg_sensor_values)

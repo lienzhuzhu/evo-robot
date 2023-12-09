@@ -4,54 +4,28 @@ simulation = SIMULATION()
 simulation.Run()
 
 
-
-################
-### OLD CODE ###
-################
-
-
 """
 
-#import pyrosim.pyrosim as pyrosim
+import pyrosim.pyrosim as pyrosim
 import numpy as np
-#import pybullet as p
-#import pybullet_data
-#import time
-time.sleep(60)
+import pybullet as p
+import pybullet_data
+import time
 import math
 import random
 import constants as c
 
 
-
-PI          = c.PI
-
-
-
-### BEGIN MATH ###
-
-BackLeg_amplitude       = PI/2
+BackLeg_amplitude       = c.PI/2
 BackLeg_frequency       = 10
 BackLeg_phaseOffset     = 0
 
-FrontLeg_amplitude      = PI/3
+FrontLeg_amplitude      = c.PI/3
 FrontLeg_frequency      = 10
-FrontLeg_phaseOffset    = PI/3
+FrontLeg_phaseOffset    = c.PI/3
 
-
-x = np.linspace(0, 2*PI*TIMESTEPS/1000, TIMESTEPS)
+x = np.linspace(0, 2*c.PI*c.TIMESTEPS/1000, c.TIMESTEPS)
 BackLeg_targetAngles    = BackLeg_amplitude  * np.sin(BackLeg_frequency  * x + BackLeg_phaseOffset)
 FrontLeg_targetAngles   = FrontLeg_amplitude * np.sin(FrontLeg_frequency * x + FrontLeg_phaseOffset)
-
-np.save("data/BackLeg_targetAngles.npy", BackLeg_targetAngles)
-np.save("data/FrontLeg_targetAngles.npy", FrontLeg_targetAngles)
-#exit()
-
-### END MATH ###
-
-
-
-#np.save("data/BackLeg.npy", BackLeg_sensor_values)
-#np.save("data/FrontLeg.npy", FrontLeg_sensor_values)
 
 """

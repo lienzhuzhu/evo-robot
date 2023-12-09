@@ -15,7 +15,12 @@ def Create_World():
     pyrosim.Send_Cube(name="Box", pos=[X-2, Y+2, Z] , size=[LENGTH, WIDTH, HEIGHT])
     pyrosim.End()
 
+
 def Create_Robot():
+    Generate_Body()
+
+
+def Generate_Body():
     pyrosim.Start_URDF("body.urdf")
 
     pyrosim.Send_Cube(name="Torso", pos=[X+1.5, Y, Z+1.0] , size=[LENGTH, WIDTH, HEIGHT])
@@ -27,6 +32,7 @@ def Create_Robot():
     pyrosim.Send_Cube(name="FrontLeg", pos=[0.5, 0, -0.5] , size=[LENGTH, WIDTH, HEIGHT])
 
     pyrosim.End()
+
 
 
 def main():

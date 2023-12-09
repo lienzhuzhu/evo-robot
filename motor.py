@@ -18,10 +18,10 @@ class MOTOR:
         self.offset     = c.PHASE_OFFSET
 
         if self.jointName == "Torso_BackLeg":
-            self.amplitude = c.PI / 2
+            self.amplitude = np.pi / 2
             self.offset = 0
 
-        x = np.linspace(0, 2*c.PI*c.TIMESTEPS/1000, c.TIMESTEPS)
+        x = np.linspace(0, 2*np.pi*c.TIMESTEPS/1000, c.TIMESTEPS)
         self.motor_values   = self.amplitude * np.sin(self.frequency * x + self.offset)
 
     def Set_Value(self, t, robot_id):
@@ -38,11 +38,11 @@ class MOTOR:
 
 
 """
-BackLeg_amplitude       = c.PI/2
+BackLeg_amplitude       = np.pi/2
 BackLeg_frequency       = 10
 BackLeg_phaseOffset     = 0
 
-FrontLeg_amplitude      = c.PI/3
+FrontLeg_amplitude      = np.pi/3
 FrontLeg_frequency      = 10
-FrontLeg_phaseOffset    = c.PI/3
+FrontLeg_phaseOffset    = np.pi/3
 """

@@ -18,6 +18,7 @@ def Create_World():
 
 def Create_Robot():
     Generate_Body()
+    Generate_Brain()
 
 
 def Generate_Body():
@@ -30,6 +31,12 @@ def Generate_Body():
 
     pyrosim.Send_Joint(name = "Torso_FrontLeg" , parent= "Torso" , child = "FrontLeg" , type = "revolute", position = [X+2.0, Y, Z+0.5])
     pyrosim.Send_Cube(name="FrontLeg", pos=[0.5, 0, -0.5] , size=[LENGTH, WIDTH, HEIGHT])
+
+    pyrosim.End()
+
+
+def Generate_Brain():
+    pyrosim.Start_NeuralNetwork("brain.nndf")
 
     pyrosim.End()
 

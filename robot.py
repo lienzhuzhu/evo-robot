@@ -32,3 +32,7 @@ class ROBOT:
     def Act(self, t):
         for motor in self.motors.values():
             motor.Set_Value(t, self.robot_id)
+
+    
+    def Think(self):
+        pass

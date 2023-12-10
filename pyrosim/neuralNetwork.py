@@ -28,6 +28,14 @@ class NEURAL_NETWORK:
 
         print("")
 
+
+    ### Lien Zhu defined ###
+
+    def Update(self):
+        for neuron in self.neurons:
+            print(neuron)
+
+
 # ---------------- Private methods --------------------------------------
 
     def Add_Neuron_According_To(self,line):

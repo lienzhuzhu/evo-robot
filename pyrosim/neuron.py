@@ -44,6 +44,12 @@ class NEURON:
 
         return self.type == c.SENSOR_NEURON
 
+    ### Lien Zhu defined ###
+
+    def Update_Sensor_Neuron(self):
+        self.Set_Value(0.)
+
+
     def Is_Hidden_Neuron(self):
 
         return self.type == c.HIDDEN_NEURON

@@ -51,10 +51,9 @@ class NEURON:
 
     def Update_Hidden_Or_Motor_Neuron(self, neurons, synapses):
         self.Set_Value(0.0)
-        print(neurons)
-        print(synapses)
+        for synapse in synapses:
+            print(synapse)
         exit()
-
 
     def Is_Hidden_Neuron(self):
 

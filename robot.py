@@ -11,6 +11,7 @@ class ROBOT:
     def __init__(self):
         self.robot_id = p.loadURDF("./body.urdf")
         pyrosim.Prepare_To_Simulate(self.robot_id)
+
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
 

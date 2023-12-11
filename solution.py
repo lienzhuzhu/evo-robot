@@ -23,6 +23,7 @@ class SOLUTION:
         pyrosim.Send_Cube(name="Box", pos=[c.X-2, c.Y+2, c.Z] , size=[c.LENGTH, c.WIDTH, c.HEIGHT])
         pyrosim.End()
 
+
     def Create_Body(self):
         pyrosim.Start_URDF("body.urdf")
 

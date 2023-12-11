@@ -8,4 +8,4 @@ class HILL_CLIMBER:
 
 
     def Evolve(self):
-        pass
+        self.parent.Evaluate()

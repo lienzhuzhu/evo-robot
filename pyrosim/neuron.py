@@ -44,6 +44,8 @@ class NEURON:
 
         return self.type == c.SENSOR_NEURON
 
+
+
     ### Lien Zhu defined ###
 
     def Update_Sensor_Neuron(self):
@@ -51,10 +53,16 @@ class NEURON:
 
     def Update_Hidden_Or_Motor_Neuron(self, neurons, synapses):
         self.Set_Value(0.0)
-        print(self.Get_Name())
         for synapse in synapses:
             if synapse[1] == self.Get_Name():
-                print(synapse[0], synapse[1])
+                self.Allow_Presynaptic_Neuron_To_Influence_Me( synapses[synapse].Get_Weight(), neurons[synapse[0]].Get_Value() )
+
+    def Allow_Presynaptic_Neuron_To_Influence_Me(self, synapse_weight, presynaptic_value):
+        print(synapse_weight)
+        print(presynaptic_value)
+        exit()
+
+
 
     def Is_Hidden_Neuron(self):
 

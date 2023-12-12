@@ -10,8 +10,13 @@ import constants as c
 
 class SIMULATION:
 
-    def __init__(self):
-        self.physics_client = p.connect(p.DIRECT)
+    def __init__(self, directOrGUI):
+
+        if directOrGUI == "DIRECT":
+            self.physics_client = p.connect(p.DIRECT)
+        else:
+            self.physics_client = p.connect(p.GUI)
+
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, c.GRAVITY)
 

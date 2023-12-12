@@ -36,3 +36,6 @@ class HILL_CLIMBER:
 
     def Print(self):
         print(self.parent.fitness, self.child.fitness)
+
+    def Show_Best(self):
+        self.parent.Evaluate("GUI")

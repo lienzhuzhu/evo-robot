@@ -18,3 +18,5 @@ Z   = 0.5
 LENGTH  = 1
 WIDTH   = 1
 HEIGHT  = 1
+
+numberOfGenerations     = 2

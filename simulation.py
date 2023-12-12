@@ -9,6 +9,7 @@ import constants as c
 
 
 class SIMULATION:
+
     def __init__(self):
         self.physics_client = p.connect(p.GUI)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
@@ -30,3 +31,6 @@ class SIMULATION:
             self.robot.Act(t)
 
             time.sleep(1/2400.)
+
+    def Get_Fitness(self):
+        self.robot.Get_Fitness()

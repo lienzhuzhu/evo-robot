@@ -17,7 +17,7 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
 
-        os.system("python3 simulate.py")
+        os.system("python3 simulate.py DIRECT")
 
         with open("fitness.txt", "r") as file:
             self.fitness = float(file.read())

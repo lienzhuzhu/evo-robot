@@ -12,12 +12,12 @@ class SOLUTION:
         self.weights = numpy.random.rand(3,2) * 2 - 1
 
 
-    def Evaluate(self):
+    def Evaluate(self, directOrGUI):
         self.Create_World()
         self.Create_Body()
         self.Create_Brain()
 
-        os.system("python3 simulate.py DIRECT")
+        os.system("python3 simulate.py " + directOrGUI)
 
         with open("fitness.txt", "r") as file:
             self.fitness = float(file.read())

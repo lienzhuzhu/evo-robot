@@ -11,7 +11,7 @@ import constants as c
 class SIMULATION:
 
     def __init__(self):
-        self.physics_client = p.connect(p.GUI)
+        self.physics_client = p.connect(p.DIRECT)
         p.setAdditionalSearchPath(pybullet_data.getDataPath())
         p.setGravity(0, 0, c.GRAVITY)
 

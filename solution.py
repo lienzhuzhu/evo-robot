@@ -20,7 +20,7 @@ class SOLUTION:
         os.system("python3 simulate.py")
 
         with open("fitness.txt", "r") as file:
-            fitness = float(file.read())
+            self.fitness = float(file.read())
 
 
     def Create_World(self):

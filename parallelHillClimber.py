@@ -6,16 +6,18 @@ import constants as c
 
 
 
-class HILL_CLIMBER:
+class PARALLEL_HILL_CLIMBER:
     def __init__(self):
-        self.parent = SOLUTION()
+        #self.parent = SOLUTION()
+        pass
 
 
     def Evolve(self):
         #self.parent.Evaluate("DIRECT")
-        self.parent.Evaluate("GUI")
-        for currentGeneration in range(c.numberOfGenerations):
-            self.Evolve_For_One_Generation()
+        #self.parent.Evaluate("GUI")
+        #for currentGeneration in range(c.numberOfGenerations):
+        #    self.Evolve_For_One_Generation()
+        pass
 
     def Evolve_For_One_Generation(self):
         self.Spawn()
@@ -38,4 +40,5 @@ class HILL_CLIMBER:
         print(self.parent.fitness, self.child.fitness)
 
     def Show_Best(self):
-        self.parent.Evaluate("GUI")
+        #self.parent.Evaluate("GUI")
+        pass

@@ -8,8 +8,10 @@ import constants as c
 
 
 class SOLUTION:
-    def __init__(self):
+
+    def __init__(self, myID):
         self.weights = numpy.random.rand(3,2) * 2 - 1
+        self.myID = myID
 
 
     def Evaluate(self, directOrGUI):

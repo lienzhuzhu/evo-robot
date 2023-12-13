@@ -20,3 +20,5 @@ WIDTH   = 1
 HEIGHT  = 1
 
 numberOfGenerations     = 10
+
+populationSize          = 2

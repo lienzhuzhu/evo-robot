@@ -66,5 +66,5 @@ class SOLUTION:
         random_motor = random.randint(0, 1)
         self.weights[random_sensor][random_motor] = random.random() * 2 - 1
 
-    def Set_ID(self):
-        pass
+    def Set_ID(self, myID):
+        self.myID = myID

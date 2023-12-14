@@ -53,7 +53,7 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
 
-        print(xCoordinateOfLinkZero)
+        #print(xCoordinateOfLinkZero)
         with open("tmp" + self.solutionID + ".txt", "w") as file:
             file.write(str(xCoordinateOfLinkZero))
 

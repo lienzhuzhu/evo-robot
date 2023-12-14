@@ -1,7 +1,8 @@
+import os
+import time
 import numpy
 import random
 import pyrosim.pyrosim as pyrosim
-import os
 
 import constants as c
 
@@ -20,6 +21,9 @@ class SOLUTION:
         self.Create_Brain()
 
         os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
+
+        while not os.path.exists("fitness" + str(self.myID) + ".txt"):
+            time.sleep(0.01)
 
         with open("fitness" + str(self.myID) + ".txt", "r") as file:
             self.fitness = float(file.read())

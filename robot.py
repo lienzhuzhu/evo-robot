@@ -52,6 +52,9 @@ class ROBOT:
         stateOfLinkZero = p.getLinkState(self.robot_id, 0)
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
+
         print(xCoordinateOfLinkZero)
-        with open("fitness" + self.solutionID + ".txt", "w") as file:
+        with open("tmp" + self.solutionID + ".txt", "w") as file:
             file.write(str(xCoordinateOfLinkZero))
+
+        os.system("mv tmp" + self.solutionID + ".txt fitness" + self.solutionID + ".txt")

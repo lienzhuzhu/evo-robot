@@ -16,8 +16,9 @@ class ROBOT:
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
 
-        self.nn = NEURAL_NETWORK("brain" + solutionID + ".nndf")
-        os.system("rm brain" + solutionID + ".nndf")
+        self.solutionID = solutionID
+        self.nn = NEURAL_NETWORK("brain" + self.solutionID + ".nndf")
+        os.system("rm brain" + self.solutionID + ".nndf")
 
 
     def Prepare_To_Sense(self):
@@ -52,5 +53,6 @@ class ROBOT:
         positionOfLinkZero = stateOfLinkZero[0]
         xCoordinateOfLinkZero = positionOfLinkZero[0]
         print(xCoordinateOfLinkZero)
-        with open('fitness.txt', 'w') as file:
+        #with open("fitness.txt", "w") as file:
+        with open("fitness" + self.solutionID + ".txt", "w") as file:
             file.write(str(xCoordinateOfLinkZero))

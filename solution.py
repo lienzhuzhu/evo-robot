@@ -24,6 +24,8 @@ class SOLUTION:
         with open("fitness" + str(myID) + ".txt", "r") as file:
             self.fitness = float(file.read())
 
+        print(self.fitness)
+
 
     def Create_World(self):
         pyrosim.Start_SDF("world.sdf")

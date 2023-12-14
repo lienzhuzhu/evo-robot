@@ -1,3 +1,4 @@
+import os
 import pyrosim.pyrosim as pyrosim
 import pybullet as p
 from pyrosim.neuralNetwork import NEURAL_NETWORK
@@ -16,6 +17,7 @@ class ROBOT:
         self.Prepare_To_Act()
 
         self.nn = NEURAL_NETWORK("brain" + solutionID + ".nndf")
+        os.system("rm brain" + solutionID + ".nndf")
 
 
     def Prepare_To_Sense(self):

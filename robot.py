@@ -8,14 +8,14 @@ from sensor import SENSOR
 
 
 class ROBOT:
-    def __init__(self):
+    def __init__(self, solutionID):
         self.robot_id = p.loadURDF("./body.urdf")
         pyrosim.Prepare_To_Simulate(self.robot_id)
 
         self.Prepare_To_Sense()
         self.Prepare_To_Act()
 
-        self.nn = NEURAL_NETWORK("brain.nndf")
+        self.nn = NEURAL_NETWORK("brain" + solutionID + ".nndf")
 
 
     def Prepare_To_Sense(self):

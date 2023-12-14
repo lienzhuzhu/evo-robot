@@ -1,3 +1,4 @@
+import os
 import copy
 
 from solution import SOLUTION
@@ -9,6 +10,9 @@ import constants as c
 class PARALLEL_HILL_CLIMBER:
 
     def __init__(self):
+
+        os.system("rm brain*.nndf")
+        os.system("rm fitness*.txt")
 
         self.nextAvailableID = 0
 

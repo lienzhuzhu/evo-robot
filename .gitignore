@@ -1,7 +1,6 @@
 .DS_Store
 data/
 
-brain.nndf
 fitness.txt
 
 # Byte-compiled / optimized / DLL files

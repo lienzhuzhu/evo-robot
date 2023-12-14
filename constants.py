@@ -21,4 +21,4 @@ HEIGHT  = 1
 
 numberOfGenerations     = 10
 
-populationSize          = 2
+populationSize          = 10

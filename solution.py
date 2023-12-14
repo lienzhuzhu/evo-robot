@@ -21,7 +21,7 @@ class SOLUTION:
 
         os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
 
-        with open("fitness.txt", "r") as file:
+        with open("fitness" + str(myID) + ".txt", "r") as file:
             self.fitness = float(file.read())
 
 

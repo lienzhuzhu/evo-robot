@@ -50,7 +50,6 @@ class PARALLEL_HILL_CLIMBER:
             child.Mutate()
 
     def Print(self):
-        #print(self.parent.fitness, self.child.fitness)
         print()
         for parent, child in zip(self.parents.values(), self.children.values()):
             print(parent.fitness, child.fitness)
@@ -62,7 +61,6 @@ class PARALLEL_HILL_CLIMBER:
                 self.parents[i] = self.children[i]
 
     def Show_Best(self):
-        #self.parent.Start_Simulation("GUI")
         min(self.parents.values(), key=lambda x: x.fitness).Start_Simulation("GUI")
 
     def Evaluate(self, solutions):

@@ -24,3 +24,5 @@ populationSize      = 10
 
 numSensorNeurons    = 5 #9
 numMotorNeurons     = 8
+
+motorJointRange     = 0.2

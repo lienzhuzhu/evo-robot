@@ -11,7 +11,7 @@ import constants as c
 class SOLUTION:
 
     def __init__(self, myID):
-        self.weights = numpy.random.rand(3,2) * 2 - 1
+        self.weights = numpy.random.rand(c.numSensorNeurons, c.numMotorNeurons) * 2 - 1
         self.myID = myID
 
 
@@ -63,16 +63,17 @@ class SOLUTION:
         pyrosim.Send_Motor_Neuron( name = 3 , jointName = "Torso_BackLeg")
         pyrosim.Send_Motor_Neuron( name = 4 , jointName = "Torso_FrontLeg")
 
-        for currentRow in range(3):
-            for currentColumn in range(2):
-                pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn+3 , weight = self.weights[currentRow][currentColumn] )
+        for currentRow in range(c.numSensorNeurons):
+            for currentColumn in range(c.numMotorNeurons):
+                pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn + c.numSensorNeurons , weight = self.weights[currentRow][currentColumn] )
 
         pyrosim.End()
+        exit()
 
 
     def Mutate(self):
-        random_sensor = random.randint(0, 2)
-        random_motor = random.randint(0, 1)
+        random_sensor = random.randint(0, c.numSensorNeurons)
+        random_motor = random.randint(0, c.numMotorNeurons)
         self.weights[random_sensor][random_motor] = random.random() * 2 - 1
 
     def Set_ID(self, myID):

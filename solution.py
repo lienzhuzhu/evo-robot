@@ -30,7 +30,7 @@ class SOLUTION:
 
         with open("fitness" + str(self.myID) + ".txt", "r") as file:
             self.fitness = float(file.read())
-
+        print(self.fitness)
         os.system("rm fitness" + str(self.myID) + ".txt")
 
 

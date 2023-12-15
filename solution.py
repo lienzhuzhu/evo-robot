@@ -68,12 +68,11 @@ class SOLUTION:
                 pyrosim.Send_Synapse( sourceNeuronName = currentRow , targetNeuronName = currentColumn + c.numSensorNeurons , weight = self.weights[currentRow][currentColumn] )
 
         pyrosim.End()
-        exit()
 
 
     def Mutate(self):
-        random_sensor = random.randint(0, c.numSensorNeurons)
-        random_motor = random.randint(0, c.numMotorNeurons)
+        random_sensor = random.randint(0, c.numSensorNeurons-1)
+        random_motor = random.randint(0, c.numMotorNeurons-1)
         self.weights[random_sensor][random_motor] = random.random() * 2 - 1
 
     def Set_ID(self, myID):

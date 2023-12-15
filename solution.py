@@ -20,7 +20,7 @@ class SOLUTION:
         self.Create_Body()
         self.Create_Brain()
 
-        os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &")
+        os.system("python3 simulate.py " + directOrGUI + " " + str(self.myID) + " &>/dev/null &")
 
 
     def Wait_For_Simulation_To_End(self):

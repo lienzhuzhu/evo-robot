@@ -16,7 +16,6 @@ class PARALLEL_HILL_CLIMBER:
 
         self.nextAvailableID = 0
 
-        #self.parent = SOLUTION()
         self.parents = {}
         for i in range(c.populationSize):
             self.parents[i] = SOLUTION(self.nextAvailableID)

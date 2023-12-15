@@ -19,8 +19,8 @@ LENGTH  = 1
 WIDTH   = 1
 HEIGHT  = 1
 
-numberOfGenerations = 1
-populationSize      = 1
+numberOfGenerations = 10
+populationSize      = 10
 
-numSensorNeurons    = 9
+numSensorNeurons    = 5 #9
 numMotorNeurons     = 8

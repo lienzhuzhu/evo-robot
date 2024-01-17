@@ -35,7 +35,7 @@ class SIMULATION:
 
             self.robot.Sense(t)
             self.robot.Think()
-            self.robot.Act(t)
+            self.robot.Act()
 
             if self.directOrGUI == "GUI":
                 time.sleep(1/2400.)
